@@ -11,12 +11,36 @@ import flagImg from "./Фото/image_c58R0X.png";
 import mireaImg from "./Фото/image_qplLkv.png";
 import dachaImg from "./Фото/image_ZwI4Hf.png";
 
+// Функция автоматического расчета возраста с правильным склонением слова "лет/года"
+const calculateAge = (birthDateString) => {
+  const birthDate = new Date(birthDateString);
+  const today = new Date();
+  
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  
+  // Если день рождения в этом году еще не наступил, вычитаем 1 год
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  
+  // Подбор правильного слова (год, года, лет)
+  const lastDigit = age % 10;
+  const lastTwoDigits = age % 100;
+  
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 14) return `${age} лет`;
+  if (lastDigit === 1) return `${age} год`;
+  if (lastDigit >= 2 && lastDigit <= 4) return `${age} года`;
+  return `${age} лет`;
+};
+
 const profileConfig = {
   siteTitle: "Николай Маслов | Персональная страница",
   name: "Маслов Николай Александрович",
   tagline: "Студент РТУ МИРЭА | ИИ & Анализ Данных",
-  avatar: avatarImg, // Подставляем импортированную переменную
-  bio: "Мне 18 лет, живу в Москве на ВДНХ. С детства обожал Minecraft, пытался запустить свой сервер, что и привело меня в программирование! Сдал ЕГЭ по информатике, изучал JavaScript, Python, HTML/CSS и React. Поступил в Институт кибербезопасности и цифровых технологий РТУ МИРЭА.",
+  avatar: avatarImg,
+  // ИСПРАВЛЕНО: строка bio теперь формируется динамически с вызовом функции calculateAge
+  bio: `Мне ${calculateAge("2008-09-02")}, живу в Москве на ВДНХ. С детства обожал Minecraft, пытался запустить свой сервер, что и привело меня в программирование! Сдал ЕГЭ по информатике, изучал JavaScript, Python, HTML/CSS и React. Поступил в Институт кибербезопасности и цифровых технологий РТУ МИРЭА.`,
   socials: [
         { title: "Telegram", link: "https://t.me/uzelaaa" },
         { title: "ВКонтакте", link: "https://vk.com/nikoollaayyy" },
