@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import SchoolStudyPage from "./components/SchoolStudyPage";
 import NameChangePage from "./components/NameChangePage";
@@ -113,8 +113,8 @@ function AppContent() {
 // Корневой экспорт приложения с фиксированным базовым путем для вашего репозитория GitHub Pages
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AppContent />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
