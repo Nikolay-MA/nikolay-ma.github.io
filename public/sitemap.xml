@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
+<urlset xmlns="http://sitemaps.org"
+        xmlns:xsi="http://w3.org"
+        xsi:schemaLocation="http://sitemaps.org
+        http://sitemaps.org/sitemap.xsd">
   <!-- Главная страница -->
   <url>
-    <loc>https://nikolay-ma.github.io/</loc>
+    <loc>https://github.io</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Учеба в школе -->
   <url>
-    <loc>https://nikolay-ma.github.io/school-study</loc>
+    <loc>https://github.ioschool-study</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Смена фамилии -->
   <url>
-    <loc>https://nikolay-ma.github.io/name-change</loc>
+    <loc>https://github.ioname-change</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Учеба в МИРЭА -->
   <url>
-    <loc>https://nikolay-ma.github.io/mirea-study</loc>
+    <loc>https://github.iomirea-study</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Проекты -->
   <url>
-    <loc>https://nikolay-ma.github.io/projects</loc>
+    <loc>https://github.ioprojects</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- События -->
   <url>
-    <loc>https://nikolay-ma.github.io/events</loc>
+    <loc>https://github.ioevents</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nikolay-ma.github.io/donghua</loc>
+    <loc>https://github.iodonghua</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
