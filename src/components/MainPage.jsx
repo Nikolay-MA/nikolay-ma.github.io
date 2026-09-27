@@ -6,8 +6,6 @@ import Lightbox from "./Lightbox";
 import avatarImg from "./Фото/image_EMD_AL.png";
 import graduationImg from "./Фото/image_moFeWh.png";
 import vdnkhImg from "./Фото/image_Til1pL.png";
-import flagImg from "./Фото/image_c58R0X.png";
-import mireaImg from "./Фото/image_qplLkv.png";
 import dachaImg from "./Фото/image_ZwI4Hf.png";
 
 // Функция автоматического расчета возраста с правильным склонением слова "лет/года"
@@ -49,8 +47,6 @@ const profileConfig = {
   items: [
     { caption: "Мой Московский Выпускной", src: graduationImg }, // Подставляем импортированные переменные
     { caption: "Вид на любимый район ВДНХ и Останкино сверху", src: vdnkhImg },
-    { caption: "Флаг Института кибербезопасности и цифровых технологий", src: flagImg },
-    { caption: "Кампус Института кибербезопасности (ИКБ) РТУ МИРЭА на Стромынке, 20", src: mireaImg },
     { caption: "Дача", src: dachaImg }
   ]
 };
