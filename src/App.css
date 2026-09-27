@@ -464,8 +464,7 @@ background-color: rgba(35, 31, 32, 0.9); -webkit-backdrop-filter: blur(8px); bac
     }
 }
 
-/* --- СТИЛИ ДЛЯ СТРАНИЦЫ ДУНХУА --- */
-
+/* --- СТИЛИ ДЛЯ НОВОЙ СТРАНИЦЫ ДУНХУА --- */
 .donghua-page-container {
     display: flex;
     flex-direction: column;
@@ -581,21 +580,97 @@ background-color: rgba(35, 31, 32, 0.9); -webkit-backdrop-filter: blur(8px); bac
     width: fit-content;
     white-space: nowrap;
 }
-/* --- ГАРАНТИРОВАННОЕ СКРЫТИЕ КНОПКИ НА ПК --- */
+
+/* --- ИСПРАВЛЕННЫЕ СТИЛИ ВКЛАДОК ПЕРЕКЛЮЧЕНИЯ (ОПИСАНИЕ / МНЕНИЕ) --- */
+.donghua-tabs-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Принудительные общие стили для кнопок-вкладок любого состояния */
+button.btn-social.donghua-tab-btn {
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    border-radius: 14px !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    outline: none !important;
+    width: auto !important;
+}
+
+/* Неактивное состояние вкладки */
+button.btn-social.donghua-tab-btn:not(.tab-active) {
+    background: #ffffff !important;
+    color: var(--text-dark) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: none !important;
+}
+
+/* Наведение на неактивную вкладку */
+button.btn-social.donghua-tab-btn:not(.tab-active):hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+/* Активное состояние вкладки (выбранная) */
+button.btn-social.donghua-tab-btn.tab-active {
+    background: var(--primary-gradient) !important;
+    color: #ffffff !important;
+    border: 1px solid transparent !important;
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.2) !important;
+}
+
+/* --- ВНЕШНИЕ ССЫЛКИ ДЛЯ СМОТРЕТЬ ТАЙТЛ --- */
+.donghua-watch-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.donghua-watch-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.donghua-links-inline {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.donghua-link-item {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    width: auto !important;
+    background: rgba(0, 86, 179, 0.05);
+    border-color: rgba(0, 86, 179, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.donghua-link-item:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* --- ПК ВЕРСИЯ: АВТОРАСКРЫТИЕ ТЕКСТА --- */
 @media (min-width: 681px) {
-    /* Раскрываем текст на полную высоту */
-    div.legal-info-card p.donghua-description-p {
+    .legal-info-card .donghua-description-p {
         max-height: none !important;
         margin-bottom: 0 !important;
     }
-
-    /* Убираем размытие текста снизу */
-    div.legal-info-card span.donghua-text-fade-overlay {
+    .legal-info-card .donghua-text-fade-overlay {
         display: none !important;
     }
-
-    /* Полностью прячем кнопку "Подробнее" */
-    div.legal-info-card button.donghua-btn-more {
+    .legal-info-card .donghua-btn-more {
         display: none !important;
     }
 }
