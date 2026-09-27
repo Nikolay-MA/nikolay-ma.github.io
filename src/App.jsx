@@ -6,15 +6,18 @@ import NameChangePage from "./components/NameChangePage";
 import MireaStudyPage from "./components/MireaStudyPage";
 import ProjectsPage from "./components/ProjectsPage";
 import EventsPage from "./components/EventsPage";
+import DonghuaPage from "./components/DonghuaPage"; // 1. Импортируем новый компонент
 import "./App.css";
 
+// 2. Добавляем новую вкладку в панель навигации
 const navItems = [
   { title: "Главная страница", path: "/" },
   { title: "Учеба в школе", path: "/school-study" },
   { title: "Смена фамилии", path: "/name-change" },
   { title: "Учеба в МИРЭА", path: "/mirea-study" },
   { title: "Проекты", path: "/projects" },
-  { title: "События", path: "/events" }
+  { title: "События", path: "/events" },
+  { title: "Дунхуа", path: "/donghua" } 
 ];
 
 const schoolData = {
@@ -26,7 +29,7 @@ const schoolData = {
 
 const legalData = {
   title: "Процесс смены фамилии",
-  text: "Так как мой отец — Команин Андрей Николаевич, в будущем меня будут звать Команиным Николаем Андреевичем. Чтобы решить этот вопрос, летом 2026 года Андрей подал заявление в суд, расположенный в нашем районе, чтобы я смог официально изменить фамилию и отчество."
+  text: "Так как мой отец — Команин Андрей Николаевич, в будущем меня будут звать Команиным Николаем Андреевичем. Чтобы решить этот вопрос, летом 2026 года Андрей подал заявление в суд, расположенный в нашем районе, чтобы я смог официально изменить фамилию и отчество. Я увлекаюсь китайскими 3D дунхуа"
 };
 
 function AppContent() {
@@ -66,9 +69,9 @@ function AppContent() {
       transform: `translate(${mousePos.x * factor * 15}px, ${mousePos.y * factor * 15}px) scale(1.05)`
     };
   };
+
   return (
     <>
-      {/* ФОН ОСТАЛСЯ ЗДЕСЬ И НЕ ПЕРЕНОСИТСЯ */}
       <div className="vector-bg-emulation"></div>
       <div className="eps-shape hexagon-1" style={getShapeStyle(1)}></div>
       <div className="eps-shape hexagon-2" style={getShapeStyle(2)}></div>
@@ -98,6 +101,8 @@ function AppContent() {
             <Route path="/mirea-study" element={<MireaStudyPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/events" element={<EventsPage />} />
+            {/* 3. Добавляем обработку нового маршрута */}
+            <Route path="/donghua" element={<DonghuaPage />} /> 
             <Route path="*" element={<MainPage />} />
           </Routes>
         </div>
@@ -110,7 +115,6 @@ function AppContent() {
   );
 }
 
-// Корневой экспорт приложения с фиксированным базовым путем для вашего репозитория GitHub Pages
 export default function App() {
   return (
     <BrowserRouter>
