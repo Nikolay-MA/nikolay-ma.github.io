@@ -192,29 +192,51 @@ export default function MainPage() {
       <section className="contact-section">
         <h2>Написать мне</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Ваше имя</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, ""))} required />
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </div>
-          <div className="form-group">
-            <label>Номер телефона</label>
-            <input type="text" value={phone} onChange={handlePhoneChange} onFocus={() => !phone && setPhone("+7 ")} placeholder="+7 (___) ___-__-__" required />
-          </div>
-          <div className="form-group">
-            <label>Сообщение</label>
-            <textarea rows="5" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
-          </div>
-          <button type="submit" className={`btn-submit ${formStatus === "success" ? "btn-success" : ""}`} disabled={formStatus === "loading" || formStatus === "success"}>
-            {formStatus === "idle" && "Отправить сообщение"}
-            {formStatus === "loading" && "Отправка..."}
-            {formStatus === "success" && "Успешно отправлено! ✓"}
-            {formStatus === "error" && "Ошибка отправки"}
-          </button>
-        </form>
+  <div className="form-group">
+    <label>Ваше имя</label>
+    {/* Убрали required */}
+    <input type="text" value={name} onChange={(e) => setName(e.target.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, ""))} />
+  </div>
+  
+  <div className="form-group">
+    <label>Email</label>
+    {/* Убрали required */}
+    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+  </div>
+  
+  <div className="form-group">
+    <label>Номер телефона</label>
+    {/* Убрали required */}
+    <input type="text" value={phone} onChange={handlePhoneChange} onFocus={() => !phone && setPhone("+7 ")} placeholder="+7 (___) ___-__-__" />
+  </div>
+  
+  <div className="form-group">
+    <label>
+      Сообщение <span style={{ fontSize: "0.8rem", opacity: 0.7, fontWeight: "normal", marginLeft: "5px" }}>(Enter — отправить, Shift+Enter — перенос)</span>
+    </label>
+    {/* Убрали required */}
+    <textarea 
+      rows="5" 
+      value={message} 
+      onChange={(e) => setMessage(e.target.value)} 
+      onKeyDown={(e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          if (formStatus !== "loading" && formStatus !== "success") {
+            handleSubmit(e);
+          }
+        }
+      }}
+    ></textarea>
+  </div>
+
+  <button type="submit" className={`btn-submit ${formStatus === "success" ? "btn-success" : ""}`} disabled={formStatus === "loading" || formStatus === "success"}>
+    {formStatus === "idle" && "Отправить сообщение"}
+    {formStatus === "loading" && "Отправка..."}
+    {formStatus === "success" && "Успешно отправлено! ✓"}
+    {formStatus === "error" && "Ошибка отправки"}
+  </button>
+</form>
       </section>
 
       {lightbox.isOpen && (
