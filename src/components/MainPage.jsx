@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import AnimeCard from "./AnimeCard";
 import GalleryItem from "./GalleryItem";
 import Lightbox from "./Lightbox";
 
@@ -46,11 +45,6 @@ const profileConfig = {
         { title: "ВКонтакте", link: "https://vk.com/nikoollaayyy" },
         { title: "YouTube", link: "https://youtube.com/@u_s_e_r_s?si=E_CkHumsLWadBKgA" }
     ],
-  anime: [
-    { rank: "Топ-1", title: "Боевой Континент", sub: "Soul Land (Douluo Dalu)" },
-    { rank: "Топ-2", title: "Расколотая битвой синева небес", sub: "Battle Through the Heavens" },
-    { rank: "Топ-3", title: "Трон, отмеченный богом", sub: "Throne of Seal" }
-  ],
   galleryHeading: "Моя жизнь, учеба и увлечения",
   items: [
     { caption: "Мой Московский Выпускной", src: graduationImg }, // Подставляем импортированные переменные
@@ -73,6 +67,7 @@ export default function MainPage() {
 
   useEffect(() => {
     document.title = profileConfig.siteTitle;
+    
   }, []);
 
   const scrollToGallery = () => {
@@ -125,7 +120,7 @@ export default function MainPage() {
     <div className="page-fade-animation" style={{ display: "flex", flexDirection: "column", gap: "60px" }}>
       <section className="profile-card">
         <div className="avatar-container">
-          <img src={profileConfig.avatar} alt={profileConfig.name} className="avatar" />
+          <img src={profileConfig.avatar}  alt={profileConfig.name} className="avatar" />
         </div>
         <div className="profile-info">
           <h1>{profileConfig.name}</h1>
@@ -143,15 +138,6 @@ export default function MainPage() {
               </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="anime-widget">
-        <h2>Топ Китайского 3D-Аниме (Дунхуа)</h2>
-        <div className="anime-grid">
-          {profileConfig.anime.map((item, idx) => (
-            <AnimeCard key={idx} rank={item.rank} title={item.title} sub={item.sub} />
-          ))}
         </div>
       </section>
 

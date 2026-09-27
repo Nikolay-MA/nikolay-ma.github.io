@@ -70,6 +70,11 @@ function AppContent() {
     };
   };
 
+  // Выносим вычисление года в переменную для читаемости
+  const startYear = 2026;
+  const currentYear = new Date().getFullYear();
+  const displayYear = startYear === currentYear ? startYear : `${startYear}–${currentYear}`;
+
   return (
     <>
       <div className="vector-bg-emulation"></div>
@@ -101,19 +106,19 @@ function AppContent() {
             <Route path="/mirea-study" element={<MireaStudyPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/events" element={<EventsPage />} />
-            {/* 3. Добавляем обработку нового маршрута */}
             <Route path="/donghua" element={<DonghuaPage />} /> 
             <Route path="*" element={<MainPage />} />
           </Routes>
         </div>
 
         <footer className="page-footer">
-          <p>© {new Date().getFullYear()} Защищено авторскими правами. Маслов Николай Александрович</p>
+          <p>© {displayYear} Авторские права защищены. Маслов Николай Александрович</p>
         </footer>
       </div>
     </>
   );
 }
+
 
 export default function App() {
   return (
